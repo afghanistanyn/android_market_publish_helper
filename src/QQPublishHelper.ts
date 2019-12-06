@@ -69,7 +69,7 @@ export default class QQPublishHelper extends AndroidPublishHelper implements Coo
                 skey: skey,
                 token: this.getToken(skey),
                 appid: appId,
-                name: apkPath,
+                name: fileName,
                 type: "application/vnd.android.package-archive",
                 lastModifiedDate: new Date(fileStat.mtimeMs).toString(),
                 size: fileStat.size,

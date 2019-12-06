@@ -1,7 +1,5 @@
 import { Zookeeper } from "ZooKeeper";
 
-// import request from 'request';
-// import util from 'util';
 const request = require('request')
 const util = require('util');
 export default abstract class AndroidPublishHelper {
@@ -118,19 +116,6 @@ export default abstract class AndroidPublishHelper {
         }
     }
 
-
-    async setCookie(response){
-        if (!response.headers || ! response.headers["set-cookie"]) return;
-        const s = response.headers["set-cookie"].find(s=>s.startsWith("JSESSIONID"))
-        if (!s) return;
-        const ss = s.split(";");
-        if (ss.length === 0) return;
-        const newCookie = ss[0];
-        if (newCookie !== this.cookie) { //应该不会去刷新cookie
-            this.cookie = newCookie;
-            this.zk.setData(this.getCookiePathInZk(), newCookie, false);
-        }
-    }
 
     async getCookieMap(){
         const cookieMap = {};

@@ -8,5 +8,5 @@ oppo(需要opkey):
     opkey=eyJpdiI6I12356BScGF3RUlBclNNZHc9PSIsInZhbHVlIjoibEdla05cL0pwYU5aSXZ5YlMzcmVrM01uQUV4MWdKam5MMW40TENYbFJ0d0grdnNSTzRpSGU2YXpjeldobDVEYmNUWWlOMUNPdENLcmxNakE3Y3E0dDV1UWNzblZWVGduNlwvdGNhZENlV2ZTM05NTUFnSklVUEtkNGhOd3NNZ2dZViIsIm1hYyI6IiJ9
 qq(需要uin,skey)
     uin=o2891674648; skey=@NHcpLEZFe
-vivo()
+vivo(需要b_account_username, b_account_aid, b_account_token, b_account_salt)
     b_account_username=iWDZpib6bk7WwMJLrb%cBG%2BA%3D%3D;b_account_aid=STcZ4ibRvAA%3D;b_account_token=1764aecc79981dc924cf6149988242df.1575694217352;b_account_salt=l8A3V1hiiqn4fbJzhXKirg%3D%3D.1575694217352

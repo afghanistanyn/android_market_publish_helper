@@ -42,7 +42,6 @@ export default class SogouPublishHelper extends AndroidPublishHelper {
             url: "http://zhushou.sogou.com/open/user/app/index.html"
         });
         let $ = cheerio.load(appList.body)
-        // console.log(appList);
         const appNameNodes = $('div[class=info-con]').find('span[class=name]');
         const appIdNodes = $('div[class=info-con]').find('span[class=appid]');
         const appNames = [];

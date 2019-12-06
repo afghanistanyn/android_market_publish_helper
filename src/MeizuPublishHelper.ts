@@ -33,7 +33,6 @@ export default class MeizuPublishHelper extends AndroidPublishHelper implements 
         if (alive) {
             const data = result.value.data;
             data.forEach(it=>{this.appMap.set(it["name"], it)})
-            this.setCookie(getResponse)
         } 
         return alive;
     }
@@ -53,7 +52,6 @@ export default class MeizuPublishHelper extends AndroidPublishHelper implements 
         if (uploadResultBody.code !== 200) {
             throw new Error("上传失败: "+ uploadResultBody.message);
         }
-        this.setCookie(uploadResult);
         const uploadResultData = uploadResultBody.value[0];
         const meizuBean = new MeizuBean();
         
@@ -68,7 +66,6 @@ export default class MeizuPublishHelper extends AndroidPublishHelper implements 
         const appInfoBoby = JSON.parse(appInfoReq.body);
         if (appInfoBoby.code !== 200) throw new Error("获取APP信息失败: " + appInfoBoby.message)
         const appInfo = appInfoBoby.value;
-        this.setCookie(appInfoReq)
 
         const keyPairs={"appName": "name", "appDesc": "appDescription", "verDesc": "verDescription",
                         "authorName": "publisher", "catid": "categoryId", "cat2id": "category2Id" }
@@ -107,7 +104,6 @@ export default class MeizuPublishHelper extends AndroidPublishHelper implements 
         if (submitResultBody.code !== 200) {
             throw new Error("提交审核出错: " + submitResultBody.message)
         }
-        this.setCookie(submitResult)
         return true;
     }
 

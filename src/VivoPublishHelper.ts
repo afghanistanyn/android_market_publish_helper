@@ -6,7 +6,6 @@ export default class VivoPublishHelper extends AndroidPublishHelper implements C
     appMap = new Map<string, any>();
     //cookie有效期是session，我们保持心跳请求，保证服务器session不过期就可以一直存活。
     //除非对方服务器重启，并且session没有序列化。或者我们太久没有请求.
-    //不想做set-cookie 感觉没有用，主要是JSESSIONID做更新
     async checkCookieAlive(): Promise<boolean> {
         await this.refreshCookieFromZk();
         const result = await this.doRequest(this.getAsync,{
