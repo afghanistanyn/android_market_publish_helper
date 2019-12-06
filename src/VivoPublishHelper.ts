@@ -1,7 +1,5 @@
 import AndroidPublishHelper from "./AndroidPublishHelper";
 import CookieCheckable from "./CookieCheckable";
-import AppManage from "../model/AppManage";
-import AppPublish from "../model/AppPublish";
 const fs = require('fs');
 const cheerio = require('cheerio');
 export default class VivoPublishHelper extends AndroidPublishHelper implements CookieCheckable{
@@ -33,19 +31,18 @@ export default class VivoPublishHelper extends AndroidPublishHelper implements C
         return alive;
     }
     
-    async publish(app: AppManage, publishInfo: AppPublish, extra: any) {
+    async publish(cn_name: string, en_name: string, package_name: string, project_version: string, desc: string, extra: any) {
         if (!await this.checkCookieAlive()) {
             throw new Error("请先登录");
         }
-        // const appId = "329279"
         // 1. 获取app信息    
-        const vivoApp = this.appMap.get(app.package_name);
+        const vivoApp = this.appMap.get(package_name);
         if (!vivoApp){
-            throw new Error(`没有找到到包名为${app.package_name}的应用`);
+            throw new Error(`没有找到到包名为${package_name}的应用`);
         }
         const appId = vivoApp["id"];
-        const apkPath = await this.getApkPath(app, publishInfo);
-        const verDesc = publishInfo.desc;
+        const apkPath = await this.getApkPath(en_name, project_version);
+        const verDesc = desc;
         if(!appId) throw new Error("没有找到到该应用");
         const appInfo = await this.doRequest(this.getAsync, {
             url: "https://developer.vivo.com.cn/application/manage/editApplicationPage",

@@ -39,7 +39,6 @@ export default class QQPublishHelper extends AndroidPublishHelper implements Coo
             qs: {
                 owner: uin,
                 uin: uin,
-                
             },
         })
         const content = result.body;

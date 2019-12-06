@@ -20,7 +20,7 @@ export default class SogouPublishHelper extends AndroidPublishHelper {
                 password: await this.zk.getString(`${this.ZK_PREFIX}.password`),
                 autoLogin: 1,
                 xd: 'http://zhushou.sogou.com/open/jump.html',
-                client_id: 1199,
+                client_id: 1299, //模拟一次请求看一下你们的是啥
                 token: this.getToken()
             }
         });
@@ -51,7 +51,7 @@ export default class SogouPublishHelper extends AndroidPublishHelper {
             appNames.push(appNameNodes[i].firstChild.data);
         }
         for (let i = 0; i < appIdNodes.length; i++) {
-            appIds.push(appIdNodes[i].firstChild.data.split(/\s+/)[1]) //AppId 88481
+            appIds.push(appIdNodes[i].firstChild.data.split(/\s+/)[1]) 
         }
         const appName = cn_name;
         const idx = appNames.findIndex(it=>it===appName);
@@ -65,10 +65,8 @@ export default class SogouPublishHelper extends AndroidPublishHelper {
                 id: appId
             }
         });
-        // const html = fs.readFileSync('sogou_update.html')
         const data = {}
         $ = cheerio.load(appInfoReq.body);
-        // $=cheerio.load(html)
         this.fillDataFromInput($, data)
         this.fillDataFromSelect($, data)
         this.fillDataFromTextarea($, data)

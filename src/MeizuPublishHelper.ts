@@ -33,7 +33,6 @@ export default class MeizuPublishHelper extends AndroidPublishHelper implements 
         if (alive) {
             const data = result.value.data;
             data.forEach(it=>{this.appMap.set(it["name"], it)})
-            // this.appMap.set(data["name"], data)
             this.setCookie(getResponse)
         } 
         return alive;
@@ -90,7 +89,7 @@ export default class MeizuPublishHelper extends AndroidPublishHelper implements 
                 value = moment(new Date(value)).format('YYYY-MM-DD HH:mm:ss')
             }
             meizuBean[key] = value;
-            // if (!value) value = "";
+
         }
         meizuBean.packageUrl = "/upload/"+uploadResultData.url
         const verDesc = desc;

@@ -8,7 +8,7 @@ export default class QihuPublishHelper extends AndroidPublishHelper implements C
 
     
     ZK_PREFIX="android_market.qihu";
-    qid="2754327295"; //不知含义
+    qid="2354327295"; //不知含义,模拟请求一次checkCookieAlive里url，看一下各自的qid是啥
     appMap=new Map<string, Map<string, any>>();
     constructor(zk: Zookeeper) {
         super(zk);
@@ -68,7 +68,6 @@ export default class QihuPublishHelper extends AndroidPublishHelper implements C
     }
     
     async publish(cn_name: string, en_name: string, package_name: string, project_version: string, desc: string, extra: any) {
-        // await this.refreshCookieFromZk();
         if (!await this.checkCookieAlive()) {
             throw new Error("请先登录");
         }
@@ -164,7 +163,7 @@ export default class QihuPublishHelper extends AndroidPublishHelper implements C
                 qid: this.qid
             },
             formData: {
-                name: `${en_name}_latest.apk`,
+                name: fileName,
                 type: "application/vnd.android.package-archive",
                 lastModifiedDate: new Date(fileStat.mtimeMs).toString(),
                 size: fileStat.size,
