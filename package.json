@@ -1,0 +1,27 @@
+{
+  "name": "android_market_publish",
+  "version": "1.0.0",
+  "description": "automatic publish app to every android markets.",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "automatic",
+    "publish",
+    "android",
+    "markets"
+  ],
+  "author": "hackingwu",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^3.7.3"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "crypto": "^1.0.1",
+    "moment": "^2.24.0",
+    "node-rsa": "^1.0.7",
+    "yaml": "^1.7.2"
+  }
+}
